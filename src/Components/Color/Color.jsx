@@ -39,7 +39,7 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
               colorData={color}
               onSubmit={handleUpdateColor}
             />
-            <button onClick={handleCancleEdit}>CANCLE</button>
+            <button onClick={handleCancleEdit}>CANCEL</button>
           </>
         ) : isDeletingWanted ? (
           <Confirmation
