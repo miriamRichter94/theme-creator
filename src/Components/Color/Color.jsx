@@ -1,12 +1,23 @@
 import { useState } from "react";
 import "./Color.css";
 import Confirmation from "../Confirmation/Confirmation";
+import ColorForm from "../ColorForm/ColorForm";
 
-export default function Color({ color, onDeleteColor }) {
+export default function Color({ color, onDeleteColor, onUpdateColor }) {
   const [isDeletingWanted, setIsDeletingWanted] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
 
   function handleCancleDeletion() {
     setIsDeletingWanted(false);
+  }
+
+  function handleCancleEdit() {
+    setIsEdit(false);
+  }
+
+  function handleUpdateColor(data) {
+    onUpdateColor({ id: color.id, ...data });
+    setIsEdit(false);
   }
 
   return (
@@ -21,14 +32,26 @@ export default function Color({ color, onDeleteColor }) {
         <p
           style={{ color: color.contrastText }}
         >{`contrast: ${color.contrastText}`}</p>
-        {isDeletingWanted ? (
+        {isEdit ? (
+          <>
+            <ColorForm
+              isEdit={isEdit}
+              colorData={color}
+              onSubmit={handleUpdateColor}
+            />
+            <button onClick={handleCancleEdit}>CANCEL</button>
+          </>
+        ) : isDeletingWanted ? (
           <Confirmation
             id={color.id}
             onCancleDeletion={handleCancleDeletion}
             onDeleteColor={onDeleteColor}
           />
         ) : (
-          <button onClick={() => setIsDeletingWanted(true)}>DELETE</button>
+          <>
+            <button onClick={() => setIsDeletingWanted(true)}>DELETE</button>
+            <button onClick={() => setIsEdit(true)}>EDIT</button>
+          </>
         )}
       </div>
     </>
