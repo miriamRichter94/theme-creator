@@ -2,11 +2,9 @@ import { useState } from "react";
 import "./ColorForm.css";
 
 export default function ColorForm({
-  onAddColor = null,
   isEdit = false,
   colorData = [],
-  onUpdateColor = null,
-  closeForm = null,
+  onSubmit,
 }) {
   const [hexColor, setHexColor] = useState(isEdit ? colorData.hex : "#000000");
   const [contrast, setContrast] = useState(
@@ -18,13 +16,8 @@ export default function ColorForm({
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
-    if (isEdit) {
-      onUpdateColor(data, colorData.id);
-      closeForm();
-    } else {
-      onAddColor(data);
-      event.target.reset();
-    }
+    onSubmit(data);
+    event.target.reset();
   }
 
   return (

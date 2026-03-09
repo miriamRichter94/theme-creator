@@ -15,6 +15,11 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
     setIsEdit(false);
   }
 
+  function handleUpdateColor(data) {
+    onUpdateColor({ id: color.id, ...data });
+    setIsEdit(false);
+  }
+
   return (
     <>
       <div className="color-card" style={{ backgroundColor: color.hex }}>
@@ -32,8 +37,7 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
             <ColorForm
               isEdit={isEdit}
               colorData={color}
-              onUpdateColor={onUpdateColor}
-              closeForm={handleCancleEdit}
+              onSubmit={handleUpdateColor}
             />
             <button onClick={handleCancleEdit}>CANCLE</button>
           </>
