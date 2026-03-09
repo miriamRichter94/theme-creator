@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Color.css";
 import Confirmation from "../Confirmation/Confirmation";
 import ColorForm from "../ColorForm/ColorForm";
+import CopyClipboard from "../CopyClipboard/CopyClipboard";
 
 export default function Color({ color, onDeleteColor, onUpdateColor }) {
   const [isDeletingWanted, setIsDeletingWanted] = useState(false);
@@ -26,6 +27,7 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
         <p className="color-card-headline">
           <strong>{color.hex}</strong>
         </p>
+        <CopyClipboard color={color.hex} />
         <p style={{ color: color.contrastText }}>
           <strong>{color.role}</strong>
         </p>
