@@ -19,12 +19,30 @@ function App() {
     setColors(colors.filter((color) => color.id != id));
   }
 
+  function handleUpdateColor(editColorData, id) {
+    setColors(
+      colors.map((color) => {
+        if (color.id == id) {
+          color.role = editColorData.role;
+          color.hex = editColorData.hex;
+          color.contrastText = editColorData.contrastText;
+        }
+        return color;
+      }),
+    );
+  }
+
   return (
     <>
       <h1>Theme Creator</h1>
       <ColorForm onAddColor={handleAddColor} />
       {colors.map((color) => (
-        <Color key={color.id} color={color} onDeleteColor={handleDeletColor} />
+        <Color
+          key={color.id}
+          color={color}
+          onDeleteColor={handleDeletColor}
+          onUpdateColor={handleUpdateColor}
+        />
       ))}
     </>
   );

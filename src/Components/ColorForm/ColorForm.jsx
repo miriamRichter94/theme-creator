@@ -1,17 +1,30 @@
 import { useState } from "react";
 import "./ColorForm.css";
 
-export default function ColorForm({ onAddColor }) {
-  const [hexColor, setHexColor] = useState("#000000");
-  const [contrast, setContrast] = useState("#ffffff");
+export default function ColorForm({
+  onAddColor = null,
+  isEdit = false,
+  colorData = [],
+  onUpdateColor = null,
+  closeForm = null,
+}) {
+  const [hexColor, setHexColor] = useState(isEdit ? colorData.hex : "#000000");
+  const [contrast, setContrast] = useState(
+    isEdit ? colorData.contrastText : "#ffffff",
+  );
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
-    onAddColor(data);
-    event.target.reset();
+    if (isEdit) {
+      onUpdateColor(data, colorData.id);
+      closeForm();
+    } else {
+      onAddColor(data);
+      event.target.reset();
+    }
   }
 
   return (
@@ -19,7 +32,13 @@ export default function ColorForm({ onAddColor }) {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <label htmlFor="role">Role</label>
-          <input type="text" name="role" id="role" required />
+          <input
+            type="text"
+            name="role"
+            id="role"
+            defaultValue={isEdit ? colorData.role : ""}
+            required
+          />
           <label htmlFor="hex">Hex</label>
           <input
             type="text"
@@ -49,7 +68,7 @@ export default function ColorForm({ onAddColor }) {
             value={contrast}
           />
         </fieldset>
-        <button type="submit">ADD COLOR</button>
+        <button type="submit">{isEdit ? "UPDATE COLOR" : "ADD COLOR"}</button>
       </form>
     </>
   );
