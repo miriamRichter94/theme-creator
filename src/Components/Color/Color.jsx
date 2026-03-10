@@ -3,6 +3,7 @@ import "./Color.css";
 import Confirmation from "../Confirmation/Confirmation";
 import ColorForm from "../ColorForm/ColorForm";
 import CopyClipboard from "../CopyClipboard/CopyClipboard";
+import ContrastCheck from "../ContrastCheck/ContrastCheck";
 
 export default function Color({ color, onDeleteColor, onUpdateColor }) {
   const [isDeletingWanted, setIsDeletingWanted] = useState(false);
@@ -34,6 +35,7 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
         <p
           style={{ color: color.contrastText }}
         >{`contrast: ${color.contrastText}`}</p>
+        <ContrastCheck background={color.hex} foreground={color.contrastText} />
         {isEdit ? (
           <>
             <ColorForm
