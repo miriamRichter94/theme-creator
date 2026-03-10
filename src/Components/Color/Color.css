@@ -1,6 +1,9 @@
 .color-card {
+  width: 250px;
+  height: 250px;
   margin: 0px 10px;
   padding: 5px;
+  box-shadow: 5px 5px 20px slategray;
 }
 
 .color-card-headline {
@@ -8,4 +11,12 @@
   padding: 2px 6px;
   background: black;
   color: white;
+}
+
+.color-cards-board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
 }

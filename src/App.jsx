@@ -92,7 +92,7 @@ function App() {
 
   return (
     <>
-      <h1>Theme Creator</h1>
+      <h1 className="heading">Theme Creator</h1>
       <ThemeSelector
         themes={themes}
         onThemeChange={handleSelectingTheme}
@@ -102,14 +102,16 @@ function App() {
         onEditTheme={handleEditTheme}
       />
       <ColorForm onSubmit={handleAddColor} />
-      {colors.map((color) => (
-        <Color
-          key={color.id}
-          color={color}
-          onDeleteColor={handleDeletColor}
-          onUpdateColor={handleUpdateColor}
-        />
-      ))}
+      <div className="color-cards-board">
+        {colors.map((color) => (
+          <Color
+            key={color.id}
+            color={color}
+            onDeleteColor={handleDeletColor}
+            onUpdateColor={handleUpdateColor}
+          />
+        ))}
+      </div>
     </>
   );
 }

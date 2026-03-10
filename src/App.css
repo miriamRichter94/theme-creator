@@ -1,4 +1,16 @@
 body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   padding: 10px;
+  background-color: lightgrey;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.root-element {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  align-self: center;
 }

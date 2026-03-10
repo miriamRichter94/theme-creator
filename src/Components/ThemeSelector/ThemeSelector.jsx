@@ -2,6 +2,7 @@ import { useState } from "react";
 import Confirmation from "../Confirmation/Confirmation";
 import AddTheme from "./AddTheme";
 import EditTheme from "./EditTheme";
+import "./ThemeSelector.css";
 
 export default function ThemeSelector({
   themes,
@@ -41,7 +42,7 @@ export default function ThemeSelector({
   }
 
   return (
-    <>
+    <div className="theme-selector">
       <select
         name="theme"
         onChange={(event) => onThemeChange(event.target.value)}
@@ -91,6 +92,6 @@ export default function ThemeSelector({
           </button>
         </>
       )}
-    </>
+    </div>
   );
 }

@@ -22,7 +22,7 @@ export default function ColorForm({
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="color-form" onSubmit={handleSubmit}>
         <fieldset>
           <label htmlFor="role">Role</label>
           <input
