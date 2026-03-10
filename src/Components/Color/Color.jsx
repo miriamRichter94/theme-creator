@@ -49,7 +49,7 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
           <Confirmation
             id={color.id}
             onCancleDeletion={handleCancleDeletion}
-            onDeleteColor={onDeleteColor}
+            onDelete={onDeleteColor}
           />
         ) : (
           <>
