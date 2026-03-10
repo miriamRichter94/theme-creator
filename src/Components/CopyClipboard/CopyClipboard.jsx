@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./CopyClipboard.css";
 
 export default function CopyClipboard({ color }) {
   const [isCopied, setIsCopied] = useState(false);
@@ -20,7 +21,7 @@ export default function CopyClipboard({ color }) {
 
   return (
     <>
-      <button onClick={handleCopy}>
+      <button className="button-copy" onClick={handleCopy}>
         {isCopied ? "SUCSESSFULLY COPIED" : "COPY"}
       </button>
     </>

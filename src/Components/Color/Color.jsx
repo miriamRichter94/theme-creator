@@ -25,17 +25,12 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
   return (
     <>
       <div className="color-card" style={{ backgroundColor: color.hex }}>
-        <p className="color-card-headline">
-          <strong>{color.hex}</strong>
+        <p>
+          <span className="color-card-headline">
+            <strong>{color.hex}</strong>
+          </span>
+          <CopyClipboard color={color.hex} />
         </p>
-        <CopyClipboard color={color.hex} />
-        <p style={{ color: color.contrastText }}>
-          <strong>{color.role}</strong>
-        </p>
-        <p
-          style={{ color: color.contrastText }}
-        >{`contrast: ${color.contrastText}`}</p>
-        <ContrastCheck background={color.hex} foreground={color.contrastText} />
         {isEdit ? (
           <>
             <ColorForm
@@ -45,16 +40,39 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
             />
             <button onClick={handleCancleEdit}>CANCEL</button>
           </>
-        ) : isDeletingWanted ? (
-          <Confirmation
-            id={color.id}
-            onCancleDeletion={handleCancleDeletion}
-            onDelete={onDeleteColor}
-          />
         ) : (
           <>
-            <button onClick={() => setIsDeletingWanted(true)}>DELETE</button>
-            <button onClick={() => setIsEdit(true)}>EDIT</button>
+            <p style={{ color: color.contrastText }}>
+              <strong>{color.role}</strong>
+            </p>
+            <p
+              style={{ color: color.contrastText }}
+            >{`contrast: ${color.contrastText}`}</p>
+            <ContrastCheck
+              background={color.hex}
+              foreground={color.contrastText}
+            />
+            <div>
+              {isDeletingWanted ? (
+                <Confirmation
+                  id={color.id}
+                  onCancleDeletion={handleCancleDeletion}
+                  onDelete={onDeleteColor}
+                />
+              ) : (
+                <>
+                  <button
+                    className="button"
+                    onClick={() => setIsDeletingWanted(true)}
+                  >
+                    DELETE
+                  </button>
+                  <button className="button" onClick={() => setIsEdit(true)}>
+                    EDIT
+                  </button>
+                </>
+              )}
+            </div>
           </>
         )}
       </div>
