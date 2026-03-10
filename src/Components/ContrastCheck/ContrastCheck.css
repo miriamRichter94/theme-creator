@@ -1,0 +1,11 @@
+.contrast-check__yup {
+  background-color: green;
+}
+
+.contrast-check__kinda {
+  background-color: orange;
+}
+
+.contrast-check__nope {
+  background-color: red;
+}
