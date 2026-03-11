@@ -61,7 +61,9 @@ export default function ColorForm({
             value={contrast}
           />
         </fieldset>
-        <button type="submit">{isEdit ? "UPDATE COLOR" : "ADD COLOR"}</button>
+        <button className="button" type="submit">
+          {isEdit ? "UPDATE COLOR" : "ADD COLOR"}
+        </button>
       </form>
     </>
   );

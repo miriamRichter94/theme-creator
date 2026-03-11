@@ -24,7 +24,9 @@ export default function ContrastCheck({ background, foreground }) {
   }, [background, foreground]);
 
   return (
-    <p className={`contrast-check__${contrastScore.toLowerCase()}`}>
+    <p
+      className={`contrast-check contrast-check__${contrastScore.toLowerCase()}`}
+    >
       Overall Contrast Score: {contrastScore}
     </p>
   );
