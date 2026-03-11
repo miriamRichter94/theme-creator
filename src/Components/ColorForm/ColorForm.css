@@ -8,3 +8,9 @@ fieldset {
 .color-form {
   width: 50%;
 }
+
+fieldset {
+  border-color: transparent;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px rgb(92, 92, 92);
+}

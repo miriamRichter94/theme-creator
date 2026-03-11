@@ -13,4 +13,10 @@ body {
 
 .heading {
   align-self: center;
+  font-size: 45px;
+  font-style: oblique;
+}
+
+.button {
+  border-radius: 10px;
 }

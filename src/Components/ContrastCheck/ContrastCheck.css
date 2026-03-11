@@ -1,5 +1,5 @@
 .contrast-check__yup {
-  background-color: green;
+  background-color: forestgreen;
 }
 
 .contrast-check__kinda {
@@ -8,4 +8,10 @@
 
 .contrast-check__nope {
   background-color: red;
+}
+
+.contrast-check {
+  padding-left: 5px;
+  box-shadow: 3px 3px black;
+  border-radius: 5px;
 }

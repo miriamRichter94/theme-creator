@@ -77,14 +77,18 @@ export default function ThemeSelector({
         )
       ) : (
         <>
-          <button onClick={handleAddingThme}>ADD</button>
+          <button className="button" onClick={handleAddingThme}>
+            ADD
+          </button>
           <button
+            className="button"
             onClick={handleEditingTheme}
             disabled={selectedTheme == themes[0].id ? true : false}
           >
             EDIT
           </button>
           <button
+            className="button"
             onClick={handleWantingToDelete}
             disabled={selectedTheme == themes[0].id ? true : false}
           >

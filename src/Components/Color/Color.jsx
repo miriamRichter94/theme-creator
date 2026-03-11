@@ -38,14 +38,17 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
               colorData={color}
               onSubmit={handleUpdateColor}
             />
-            <button onClick={handleCancleEdit}>CANCEL</button>
+            <button className="button" onClick={handleCancleEdit}>
+              CANCEL
+            </button>
           </>
         ) : (
           <>
-            <p style={{ color: color.contrastText }}>
+            <p className="color-labeling" style={{ color: color.contrastText }}>
               <strong>{color.role}</strong>
             </p>
             <p
+              className="color-labeling"
               style={{ color: color.contrastText }}
             >{`contrast: ${color.contrastText}`}</p>
             <ContrastCheck
@@ -62,12 +65,15 @@ export default function Color({ color, onDeleteColor, onUpdateColor }) {
               ) : (
                 <>
                   <button
-                    className="button"
+                    className="button color-card__button"
                     onClick={() => setIsDeletingWanted(true)}
                   >
                     DELETE
                   </button>
-                  <button className="button" onClick={() => setIsEdit(true)}>
+                  <button
+                    className="button color-card__button"
+                    onClick={() => setIsEdit(true)}
+                  >
                     EDIT
                   </button>
                 </>
